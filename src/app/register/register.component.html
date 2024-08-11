@@ -1,0 +1,92 @@
+<section class="form_section">
+    <form [formGroup]="registerForm" (ngSubmit)="onReactiveBased()">
+        <div class="mb-3">
+            <label for="nameInput" class="form-label">Name</label>
+            <input type="text" class="form-control" id="nameInput" formControlName="name">
+
+            <!-- validation -->
+            @if (name?.touched && name?.hasError('required')){
+            <div class="form-text text-danger">
+                <span>Name is Required</span>
+            </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="emailInput" class="form-label">Email</label>
+            <input type="email" class="form-control" id="emailInput" formControlName="email">
+
+            <!-- validation -->
+            @if (email?.invalid && email?.touched){
+            <div class="form-text text-danger">
+                @if (email?.hasError('required')){
+                <span>Email is Required</span>
+                }
+                @if (email?.hasError('email')){
+                <span>Email address is Invalid</span>
+                }
+            </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="userNameInput" class="form-label">User Name</label>
+            <input type="text" class="form-control" id="userNameInput" formControlName="userName">
+
+            <!-- validation -->
+            @if (userName?.invalid && userName?.touched){
+            <div class="form-text text-danger">
+                @if (userName?.hasError('required')){
+                <span>User Name is Required</span>
+                }
+                @if (userName?.hasError('pattern')){
+                <span>User Name does not allow whitespaces</span>
+                }
+            </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="passInput" class="form-label">Password</label>
+
+            <div class="input-group">
+                <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" id="passInput"
+                    formControlName="password">
+
+                <div class="input-group-text">
+                    <span class="input-group-text">
+                        <i class="fa" [ngClass]="{
+                        'fa-eye-slash': !fieldTextType,
+                        'fa-eye': fieldTextType
+                        }" (click)="toggleFieldTextType()"></i>
+                    </span>
+                </div>
+
+            </div>
+            <!-- validation -->
+        </div>
+        @if (password?.invalid && password?.touched){
+        <div class="form-text text-danger">
+            @if (password?.hasError('required')){
+            <span>Password is Required</span>
+            }
+            @if (password?.hasError('pattern')){
+            <p>Your password must: <br>
+                Include at least one uppercase letter <br>
+                Include at least one lowercase letter <br>
+                Include at least one number <br>
+                Include at least one symbol</p>
+            }
+            @if (password?.hasError('minlength')){
+            <span>Password must be at least 8 characters</span>
+            }
+        </div>
+        }
+
+        <div class="mb-3">
+            <label for="confPassInput" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confPassInput" formControlName="confirmPassword">
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid">Register</button>
+    </form>
+</section>

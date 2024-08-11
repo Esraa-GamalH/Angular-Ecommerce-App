@@ -1,0 +1,17 @@
+.form_section{
+    width: 50%;
+    margin: 150px auto;
+    background-color: rgb(220, 227, 241);
+    padding: 5%;
+    border-radius: 10px;
+}
+
+.account_reg{
+    display: flex;
+    padding: 20px 0;
+}
+
+.account_reg span{
+    text-decoration: underline;
+    padding: 0 2px;
+}

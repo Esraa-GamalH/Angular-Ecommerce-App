@@ -1,0 +1,17 @@
+.not_found_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+
+}
+
+img{
+    width: 50%;
+}
+
+p{
+    font-size: 40px;
+}

@@ -1,0 +1,38 @@
+<section class="form_section">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmitTemplateBased(loginForm)">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="userEmail" ngModel #userEmail="ngModel" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+            @if (userEmail.touched && userEmail.hasError('required')){
+                <div class="form-text text-danger">Email address is Required</div>
+            }
+            @else if (userEmail.touched && userEmail.hasError('pattern')) {
+                <div class="form-text text-danger">Email address is Invalid</div>
+            }
+            @else if (userEmail.untouched){
+                <div class="form-text text-danger"[hidden]="!TouchedEmail">Email address is Required</div>
+            }
+        </div>
+        
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control ng-pristine" id="exampleInputPassword1" name="userPassword" ngModel #userPassword="ngModel" required minlength="8">
+            @if (userPassword.touched && userPassword.hasError('required')){
+                <div class="form-text text-danger">Password is Required</div>
+            }
+            @else if (userPassword.touched && userPassword.hasError('minlength')) {
+                <div class="form-text text-danger">Password must be 8 or more characters</div>
+            }
+            @else if (userPassword.untouched){
+                <div class="form-text text-danger" [hidden]="!TouchedPassword">Password is Required</div>
+            }
+        </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
+    <div class="account_reg">
+        <p>Don't have account?</p>
+        <span><a class="link-primary" routerLink="/register">Register</a></span>
+    </div>
+</section>
