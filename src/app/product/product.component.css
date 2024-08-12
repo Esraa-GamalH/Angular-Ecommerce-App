@@ -51,6 +51,13 @@
 
 .fav_Icon{
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    cursor: pointer; 
+    z-index: 10;
+}
+
+.fav_Icon i{
+color: #EB3678;
 }

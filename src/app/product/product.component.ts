@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import {IData} from '../../dummyData';
 import { CartService } from '../services/cart.service';
 import { NgClass } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, RouterLink],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })

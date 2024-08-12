@@ -6,14 +6,14 @@
         }">{{product.availabilityStatus}}</span>
 
     <!-- favourite icon -->
-    <span>
+    <span class="fav_Icon">
         <i class="fa fa-heart" [ngClass]="{'fa-solid': isActive, 'fa-regular': !isActive}" (click)="changeFavIcon()"></i>
     </span>
     
     <div class="product_image">
         <img [src]="product.thumbnail" class="card-img-top item" [alt]="product.title">
     </div>
-    <div class="card-body">
+    <div class="card-body" routerLink="/">
         <h5 class="card-title single-line text">{{product.title}}</h5>
         <p class="card-text single-line text">{{product.description}}</p>
         <div class="card-footer d-flex justify-content-between">

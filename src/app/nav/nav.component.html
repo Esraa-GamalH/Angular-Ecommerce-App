@@ -7,9 +7,14 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" routerLink="/register">Register</a>
-                <a class="nav-link" routerLink="/login">Login</a>
-                <a class="nav-link position-relative" routerLink="/cart"><i class="fa fa-light fa-cart-shopping position-relative"></i><span
+                <a class="nav-link active" aria-current="page" routerLink="/register" routerLinkActive="active_link"
+                    [routerLinkActiveOptions]="{exact:true}">Register</a>
+
+                <a class="nav-link" routerLink="/login" routerLinkActive="active_link"
+                [routerLinkActiveOptions]="{exact:true}">Login</a>
+                
+                <a class="nav-link position-relative" routerLink="/cart"><i
+                        class="fa fa-light fa-cart-shopping position-relative"></i><span
                         class="counter position-absolute top-25 start-75 translate-middle badge rounded-pill">
                         {{productsCounter}}
                     </span></a>
