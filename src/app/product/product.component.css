@@ -14,7 +14,8 @@
 }
 
 .card-body{
-    color: black;
+    color: black; 
+    cursor: pointer;
 }
 
 #addTCart{

@@ -1,7 +1,5 @@
 .form_section{
-    width: 50%;
     margin: 150px auto;
-    background-color: rgb(220, 227, 241);
     padding: 5%;
     border-radius: 10px;
 }
@@ -14,4 +12,28 @@
 .account_reg span{
     text-decoration: underline;
     padding: 0 2px;
+}
+
+
+.log-btn{
+    background-color: #4F1787;
+    color: white;
+}
+
+@media only screen and (min-width: 600px) {
+    .form_section{
+        width:450px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .form_section{
+        width:500px;
+    }
+} 
+
+@media only screen and (min-width: 992px) {
+    .form_section{
+        width:600px;
+    }
 }

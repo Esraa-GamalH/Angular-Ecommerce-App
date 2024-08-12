@@ -13,12 +13,12 @@
     <div class="product_image">
         <img [src]="product.thumbnail" class="card-img-top item" [alt]="product.title">
     </div>
-    <div class="card-body" routerLink="/">
+    <div class="card-body" (click)="handelRedirection(product.id)">
         <h5 class="card-title single-line text">{{product.title}}</h5>
         <p class="card-text single-line text">{{product.description}}</p>
+    </div>
         <div class="card-footer d-flex justify-content-between">
             <a href="#" class="btn" id="addTCart" (click)="increasePCounter()">Add to Cart</a>
             <span class="price">{{product.price}}</span>
         </div>
-    </div>
 </div>

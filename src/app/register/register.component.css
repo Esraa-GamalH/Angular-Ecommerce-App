@@ -1,7 +1,5 @@
 .form_section{
-    width: 50%;
     margin: 50px auto;
-    background-color: rgb(220, 227, 241);
     padding: 2%;
     border-radius: 10px;
 }
@@ -17,7 +15,30 @@
 }
 
 span a{
-    color: green !important;
+    color: #EB3678 !important;
     text-decoration: underline;
-    text-decoration-color: green !important;
+    text-decoration-color: #EB3678 !important;
+}
+
+.reg-btn{
+    background-color: #EB3678 !important;
+    color: white;
+}
+
+@media only screen and (min-width: 600px) {
+    .form_section{
+        width:300px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .form_section{
+        width:400px;
+    }
+} 
+
+@media only screen and (min-width: 992px) {
+    .form_section{
+        width:600px;
+    }
 }
