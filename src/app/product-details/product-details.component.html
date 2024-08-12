@@ -1,1 +1,32 @@
-<p>product-details works!</p>
+<section class="card-details">
+    <div class="card mb-3 p-2 p-lg-5">
+        
+        <div class="row">
+            
+            <div class="col-6">
+                <img [src]="productDetails.images[0]" class="img-fluid rounded-start">
+            </div>
+
+            <div class="col-6 d-flex flex-column">
+                <div class="card-body">
+                    <span class="badge" [ngClass]="{
+                        'in_stock': productDetails.availabilityStatus === 'In Stock',
+                        'low_stock': productDetails.availabilityStatus === 'Low Stock'
+                        }">{{productDetails.availabilityStatus}}</span>
+                        
+                    <h5 class="card-title">{{productDetails.title}}</h5>
+                    <p class="card-text">{{productDetails.description}}</p>
+                    <p class="card-text"><small class="text-body-secondary">Rating: {{productDetails.rating}}</small></p>
+                    <h5>Price: &#36;{{productDetails.price}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+<section class="reviews">
+    <!-- @for(review of productDetails.reviews; track $index){
+        <h1>{{review.comment}}</h1>
+    } -->
+</section>

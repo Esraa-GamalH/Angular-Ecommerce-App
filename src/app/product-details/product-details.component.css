@@ -1,0 +1,21 @@
+
+.badge{
+    z-index: 10000;
+    font-size: 15px;
+}
+
+.in_stock{
+    background-color: #4F1787;
+}
+
+.low_stock{
+    background-color: #EB3678;
+}
+
+.card-title{
+    font-size: 50px;
+}
+
+img{
+    width: 70%;
+}
