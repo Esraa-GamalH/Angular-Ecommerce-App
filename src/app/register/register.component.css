@@ -5,3 +5,19 @@
     padding: 2%;
     border-radius: 10px;
 }
+
+.account_login{
+    display: flex;
+    padding: 20px 0;
+    justify-content: center;
+}
+
+.account_login span{
+    padding: 0 2px;
+}
+
+span a{
+    color: green !important;
+    text-decoration: underline;
+    text-decoration-color: green !important;
+}
