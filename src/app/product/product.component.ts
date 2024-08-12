@@ -33,7 +33,7 @@ export class ProductComponent {
   }
 
   handelRedirection(id : number){
-    this.router.navigate(['/product-details']);
+    this.router.navigate(['/product-details', id]);
     
   }
   

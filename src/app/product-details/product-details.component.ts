@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -9,4 +10,12 @@ import { Component } from '@angular/core';
 })
 export class ProductDetailsComponent {
 
+  constructor(private activatedRoute: ActivatedRoute, private productAPIrequests: ActivatedRoute){}
+
+  ngOnInit(){
+    const id = this.activatedRoute.snapshot.params['id'];
+    console.log(id);
+    
+    
+  }
 }
