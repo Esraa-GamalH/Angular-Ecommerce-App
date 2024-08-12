@@ -1,9 +1,10 @@
-<div class="row">
-
-    @for (product of products; track $index){
-    <div class="col">
-        <app-product [product]="product"></app-product>
+<section class="list_section">
+    <div class="row">
+        @for (product of products; track $index){
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <app-product [product]="product"></app-product>
+        </div>
+        }
+        
     </div>
-    }
-
-</div>
+</section>

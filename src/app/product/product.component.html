@@ -1,10 +1,24 @@
-<div class="card" style="width: 18rem;">
+<div class="card">
+    <!-- stock badge -->
+    <span class="badge" [ngClass]="{
+        'in_stock': product.availabilityStatus === 'In Stock',
+        'low_stock': product.availabilityStatus === 'Low Stock'
+        }">{{product.availabilityStatus}}</span>
+
+    <!-- favourite icon -->
+    <span>
+        <i class="fa fa-heart" [ngClass]="{'fa-solid': isActive, 'fa-regular': !isActive}" (click)="changeFavIcon()"></i>
+    </span>
+    
     <div class="product_image">
-        <img [src]="product.thumbnail" class="card-img-top" [alt]="product.title">
+        <img [src]="product.thumbnail" class="card-img-top item" [alt]="product.title">
     </div>
     <div class="card-body">
-        <h5 class="card-title">{{product.title}}</h5>
-        <p class="card-text">{{product.description}}</p>
-        <a href="#" class="btn btn-primary" (click)="increasePCounter()">Add to Cart</a>
+        <h5 class="card-title single-line text">{{product.title}}</h5>
+        <p class="card-text single-line text">{{product.description}}</p>
+        <div class="card-footer d-flex justify-content-between">
+            <a href="#" class="btn" id="addTCart" (click)="increasePCounter()">Add to Cart</a>
+            <span class="price">{{product.price}}</span>
+        </div>
     </div>
 </div>

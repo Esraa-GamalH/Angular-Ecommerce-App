@@ -1,17 +1,19 @@
 import { Component, Input } from '@angular/core';
 import {IData} from '../../dummyData';
 import { CartService } from '../services/cart.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
   @Input () product!: IData;
   productCounter !: number;
+  isActive : boolean = false;
 
   constructor(private cartService: CartService){}
 
@@ -23,5 +25,10 @@ export class ProductComponent {
     this.cartService.setCounter(this.productCounter + 1);
   }
 
+  changeFavIcon(){
+    this.isActive = !this.isActive;
+    console.log(this.isActive);
+    
+  }
   
 }

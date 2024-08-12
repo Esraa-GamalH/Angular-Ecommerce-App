@@ -10,4 +10,8 @@ export class ProductsRequestsService {
   getProductsList() {
     return this.http.get('https://dummyjson.com/products');
   }
+
+  getProductDetails(id : number){
+    return this.http.get(`https://dummyjson.com/products/${id}`);
+  }
 }
