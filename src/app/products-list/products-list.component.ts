@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 // import * as productsList from '../../../public/assets/products.json';
-import {dummyData, IData} from '../../dummyData';
+import {IData} from '../../dummyData';
 import { ProductComponent } from "../product/product.component";
+import { ProductsRequestsService } from '../services/products-requests.service';
 
 @Component({
   selector: 'app-products-list',
@@ -11,7 +12,12 @@ import { ProductComponent } from "../product/product.component";
   styleUrl: './products-list.component.css'
 })
 export class ProductsListComponent {
-  products : IData[] = dummyData;
+  products : IData[] = [];
   
+  constructor(private productsAPIService : ProductsRequestsService){}
+
+  ngOnInit(){
+    this.productsAPIService.getProductsList().subscribe((data: any)=> this.products = data.products);
+  }
 
 }
