@@ -16,7 +16,15 @@
         
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control ng-pristine" id="exampleInputPassword1" name="userPassword" ngModel #userPassword="ngModel" required minlength="8">
+            <div class="input-group">
+                <input [type]="fieldTextType ? 'text' : 'password'" class="form-control ng-pristine" id="exampleInputPassword1" name="userPassword" ngModel #userPassword="ngModel" required minlength="8">
+                <span class="input-group-text">
+                    <i class="fa" [ngClass]="{
+                    'fa-eye-slash': !fieldTextType,
+                    'fa-eye': fieldTextType
+                    }" (click)="toggleFieldTextType()"></i>
+                </span>
+            </div>
             @if (userPassword.touched && userPassword.hasError('required')){
                 <div class="form-text text-danger">Password is Required</div>
             }

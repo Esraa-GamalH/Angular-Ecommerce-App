@@ -53,40 +53,46 @@
                 <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" id="passInput"
                     formControlName="password">
 
-                <div class="input-group-text">
-                    <span class="input-group-text">
-                        <i class="fa" [ngClass]="{
-                        'fa-eye-slash': !fieldTextType,
-                        'fa-eye': fieldTextType
-                        }" (click)="toggleFieldTextType()"></i>
-                    </span>
-                </div>
+                <span class="input-group-text">
+                    <i class="fa" [ngClass]="{
+                    'fa-eye-slash': !fieldTextType,
+                    'fa-eye': fieldTextType
+                    }" (click)="toggleFieldTextType()"></i>
+                </span>
 
             </div>
             <!-- validation -->
+            @if (password?.invalid && password?.touched){
+                <div class="form-text text-danger">
+                    @if (password?.hasError('required')){
+                        <span>Password is Required</span>
+                    }
+                    @if (password?.hasError('pattern')){
+                        <span>Your password must: <br>
+                            Include at least one uppercase letter <br>
+                            Include at least one lowercase letter <br>
+                            Include at least one number <br>
+                            Include at least one symbol <br></span>
+                        }
+                        @if (password?.hasError('minlength')){
+                            <span>Password must be at least 8 characters</span>
+                        }
+                    </div>
+                }
         </div>
-        @if (password?.invalid && password?.touched){
-        <div class="form-text text-danger">
-            @if (password?.hasError('required')){
-            <span>Password is Required</span>
-            }
-            @if (password?.hasError('pattern')){
-            <p>Your password must: <br>
-                Include at least one uppercase letter <br>
-                Include at least one lowercase letter <br>
-                Include at least one number <br>
-                Include at least one symbol</p>
-            }
-            @if (password?.hasError('minlength')){
-            <span>Password must be at least 8 characters</span>
-            }
-        </div>
-        }
 
         <div class="mb-3">
             <label for="confPassInput" class="form-label">Confirm Password</label>
             <input type="password" class="form-control" id="confPassInput" formControlName="confirmPassword">
+
+            <!-- Validation -->
+            @if(confirmPassword?.touched && confirmPassword.hasError('required')){
+                <div class="form-text text-danger">
+                    <span>Confirmation of password is Required</span>
+                </div>
+            }
         </div>
         <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid">Register</button>
+        
     </form>
 </section>
