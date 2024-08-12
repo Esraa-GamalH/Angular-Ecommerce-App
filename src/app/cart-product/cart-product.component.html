@@ -1,0 +1,23 @@
+<div class="card">    
+    <div class="product_image">
+        <img [src]="product.thumbnail" class="card-img-top item" [alt]="product.title">
+    </div>
+    <div class="card-body" (click)="handelRedirection(product.id)">
+        <h5 class="card-title single-line text">{{product.title}}</h5>
+        <p class="card-text single-line text">{{product.description}}</p>
+    </div>
+    <div class="row">
+        <div class="col-lg-5 col-md-5">
+            <p class="price"> 
+                price : {{product.price}}
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5 col-md-5">
+            <p class="price"> 
+                count : {{product.count}}
+            </p>
+        </div>
+    </div>
+</div>

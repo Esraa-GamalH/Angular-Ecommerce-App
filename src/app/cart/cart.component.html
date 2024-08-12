@@ -1,3 +1,22 @@
 <section class="cart_section">
-<p> {{counter}} </p>
+    <div class="row">
+        <p>
+            Cart  
+        </p>
+    </div>
+    <div class="row">
+        @for (product of products; track $index){
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <app-cart-product [product]="product"></app-cart-product>
+        </div>
+        }
+    </div>
+    <div class="row">
+        <p>
+            Checkout  
+        </p>
+        <p>
+            Total : {{ calculateSum() }}
+        </p>
+    </div>
 </section>
